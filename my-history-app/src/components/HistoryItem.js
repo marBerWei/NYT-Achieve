@@ -1,13 +1,12 @@
 import React from 'react'
 
 const HistoryItem = (props) => {
-
 	return (
-
 		<div>
-			<li>{props.event.snippet}</li>
+			<h4>{props.event.snippet}</h4>
+			<br />
 		</div>
-		)
+	)
 }
 
 export default HistoryItem

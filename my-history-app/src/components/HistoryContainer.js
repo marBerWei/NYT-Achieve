@@ -1,6 +1,6 @@
 import React from 'react'
 import HistoryList from './HistoryList'
-import HistoryData from '../HistoryData.js'
+// import HistoryData from '../HistoryData.js'
 import Search from './Search'
 import ParseFunc from '../ParseFunc'
 
@@ -11,9 +11,14 @@ class HistoryContainer extends React.Component {
 		events: []
 	}
 
-
 	componentDidMount(){
-		let url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?source=world&begin_date=${this.state.startDate}&end_date=${((Number(this.state.startDate)) + 1).toString()}&page=7&api-key=09afefee7ce44a7abc224efa804afde9`
+		console.log("start date while mounting:", this.state.startDate)
+		this.getDates()
+		console.log("start date after function for today:", this.state.startDate)
+	}
+
+	getDates = () => {
+		let url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=science&begin_date=${this.state.startDate}&end_date=${((Number(this.state.startDate)) + 1).toString()}&api-key=09afefee7ce44a7abc224efa804afde9`
 		fetch(url)
 		.then((res) => res.json())
 		.then(data => this.setState({
@@ -27,8 +32,7 @@ class HistoryContainer extends React.Component {
 		let searchDate = input.value.split('-').join("")
 		this.setState({
 			startDate: searchDate
-		})
-		console.log(this.state.startDate)
+		}, () => this.getDates())
 	}
 
 	render() {
