@@ -1,11 +1,11 @@
 import React from 'react'
 
 const HistoryItem = (props) => {
-	
+
 	return (
 
 		<div>
-			<li>Headline: {props.event.lead_paragraph}</li>
+			<li>{props.event.snippet}</li>
 		</div>
 		)
 }
