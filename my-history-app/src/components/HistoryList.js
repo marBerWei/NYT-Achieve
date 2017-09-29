@@ -4,7 +4,7 @@ import HistoryItem from './HistoryItem'
 
 const HistoryList = (props) => {
 	const headlines = props.events.map((event, i) => {
-		return <HistoryItem key= {i} event = {event} />
+		return <HistoryItem key= {i} id={i} event = {event} />
 	})
 	return (
 		<div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import HistoryList from './HistoryList'
 import {Route} from 'react-router-dom'
+import Nav from './Nav'
 // import HistoryData from '../HistoryData.js'
 import Search from './Search'
 import ParseFunc from '../ParseFunc'
@@ -47,14 +48,23 @@ class HistoryContainer extends React.Component {
 		}, () => this.getDates())
 	}
 
+
 	render() {
+
 		return (
-			<div>
-				<Search handleSearch={this.handleSearch}/>
-				<Filter handleFilter={this.handleFilter}/>
-				<HistoryList events={this.state.filteredEvents.length > 0 ? this.state.filteredEvents : this.state.events}/>
-			</div>
-			)
+
+		<div>
+          <Route exact path='/home' render={(props) => {
+            return (
+              <div>
+              	<Nav />
+                <Search handleSearch={this.handleSearch}/>
+                <Filter handleFilter={this.handleFilter}/>
+                <HistoryList events={this.state.filteredEvents.length > 0 ? this.state.filteredEvents : this.state.events}/>
+              </div>
+            )}}/>
+        </div>
+        )
 	}
 }
 
