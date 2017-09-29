@@ -5,7 +5,7 @@ const Filter = (props) => {
     return props.handleFilter(event)
   }
   return(
-    <input type="text" onChange={onFilter}/>
+    <input className="ui search" type="text" onChange={onFilter}/>
   )
 }
 

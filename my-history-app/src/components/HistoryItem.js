@@ -2,12 +2,27 @@ import React from 'react'
 import {Route} from 'react-router-dom'
 
 const HistoryItem = (props) => {
+	let image = ""
+	props.event.multimedia[0] ? image=`https://static01.nyt.com/${props.event.multimedia[0].url}` : image = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg"
 	return (
-		<div>
-			<h4>{props.event.snippet}</h4>
-			<br />
-		</div>
+
+		<div id="article" className="item">
+			<div className="ui small image">
+				<img src={image}/>
+				</div>
+				<div className="content">
+					<a className="header">{props.event.headline.main}</a>
+					<div className="meta">
+						<span>Description</span>
+					</div>
+					<div className="description">
+						<p>{props.event.snippet}</p>
+					</div>
+				</div>
+				<div class="ui divider"></div>
+			</div>
 	)
+
 }
 
 export default HistoryItem

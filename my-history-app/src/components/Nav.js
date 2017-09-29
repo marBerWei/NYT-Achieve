@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 class Nav extends React.Component {
   render() {
     return (
-      <div className="ui black secondary menu">
-        <NavLink activeClassName="active" className="item" to="/">Home</NavLink>
+      <div className="ui inverted menu">
+        <NavLink activeClassName="active red item" className="item" to="/">Home</NavLink>
         <NavLink className="item right" to="/logout">Logout</NavLink>
       </div>
     )

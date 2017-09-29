@@ -16,9 +16,7 @@ class HistoryContainer extends React.Component {
 	}
 
 	componentDidMount(){
-		console.log("start date while mounting:", this.state.startDate)
 		this.getDates()
-		console.log("start date after function for today:", this.state.startDate)
 	}
 
 	getDates = () => {
@@ -32,7 +30,10 @@ class HistoryContainer extends React.Component {
 
 	handleFilter = (event) =>{
 		let currentSearchTerm = event.target.value.toLowerCase()
-		let filtered = this.state.events.filter((e) => { return e.snippet.toLowerCase().includes(currentSearchTerm)})
+		console.log(currentSearchTerm)
+		let filtered = this.state.events.filter((e) => {
+			return e.snippet.toLowerCase().includes(currentSearchTerm) || e.headline.main.toLowerCase().includes(currentSearchTerm)
+		})
 		this.setState({
 			filteredEvents: filtered
 		})
@@ -58,7 +59,7 @@ class HistoryContainer extends React.Component {
             return (
               <div>
               	<Nav />
-                <Search handleSearch={this.handleSearch}/>
+                <Search handleSearch={this.handleSearch} todaysDate={this.state.startDate}/>
                 <Filter handleFilter={this.handleFilter}/>
                 <HistoryList events={this.state.filteredEvents.length > 0 ? this.state.filteredEvents : this.state.events}/>
               </div>
