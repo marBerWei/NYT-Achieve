@@ -20,12 +20,12 @@ class HistoryContainer extends React.Component {
 	}
 
 	getDates = () => {
-		let url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=${this.state.startDate}&end_date=${((Number(this.state.startDate)) + 1).toString()}&api-key=09afefee7ce44a7abc224efa804afde9`
+		let url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=${((Number(this.state.startDate)) - 1)}&end_date=${this.state.startDate.toString()}&api-key=09afefee7ce44a7abc224efa804afde9`
 		fetch(url)
 		.then((res) => res.json())
 		.then(data => this.setState({
 			events: data.response.docs
-		}))
+		}),console.log(this.state.events))
 	}
 
 	handleFilter = (event) =>{
