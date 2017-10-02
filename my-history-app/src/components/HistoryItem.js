@@ -1,7 +1,8 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 
 const HistoryItem = (props) => {
+	console.log(props.id)
 	let image = ""
 	props.event.multimedia[0] ? image=`https://static01.nyt.com/${props.event.multimedia[0].url}` : image = "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg"
 	return (
@@ -11,7 +12,9 @@ const HistoryItem = (props) => {
 				<img src={image}/>
 				</div>
 				<div className="content">
+					<Link to={`/home/${props.id}`}>
 					<a className="header">{props.event.headline.main}</a>
+					</Link>
 					<div className="meta">
 						<span>Description</span>
 					</div>
@@ -19,7 +22,7 @@ const HistoryItem = (props) => {
 						<p>{props.event.snippet}</p>
 					</div>
 				</div>
-				<div class="ui divider"></div>
+				<div className="ui divider"></div>
 			</div>
 	)
 
