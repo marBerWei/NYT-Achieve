@@ -35,3 +35,11 @@
   padding-right: 5%;
   padding-bottom: 5%
 }
+
+.column {
+  max-width: 500px;
+}
+
+#login-header{
+  margin-top: 150px;
+}
