@@ -5,7 +5,9 @@ const Filter = (props) => {
     return props.handleFilter(event)
   }
   return(
-    <input className="ui search" type="text" onChange={onFilter}/>
+    <div className="ui large input" id="filter">
+      <input type="text" placeholder="Filter..." onChange={onFilter}/>
+    </div>
   )
 }
 

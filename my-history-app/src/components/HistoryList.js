@@ -7,9 +7,11 @@ const HistoryList = (props) => {
 		return <HistoryItem key= {i} id={i} event = {event} />
 	})
 	return (
+		<div>
 				<div className="ui items">
 					{headlines}
 				</div>
+			</div>
 		)
 }
 

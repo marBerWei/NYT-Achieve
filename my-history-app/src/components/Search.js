@@ -13,12 +13,11 @@ const Search = (props) => {
   }
 
   return(
-    <div>
+    <div className="ui input">
     <form onSubmit={onSearch}>
-      <h3>Enter a date after October 1st, 1851:</h3>
-      <div className="ui input">
+      <div>
         <input id="date-search" type="date" name="bday" min="1851-10-01" defaultValue={finalizedDate}/>
-        <input className="ui red button" type="submit"/><br/><br/><br/>
+        <input className="ui red button" type="submit"/>
       </div>
     </form>
     </div>

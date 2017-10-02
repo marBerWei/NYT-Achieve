@@ -13,6 +13,7 @@ class App extends Component {
       <Router>
       	<Route exact path="/" component={WelcomePage}/>
       </Router>
+      <div id="modal"></div>
        <HistoryContainer/>
       </div>
     );

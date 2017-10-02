@@ -23,3 +23,15 @@
   border: 5px;
   border-color: black;
 }
+
+#filter {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+#search {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%
+}
