@@ -1,30 +1,28 @@
 import React from 'react'
 
-class WebModal extends React.Component {
+const WebModal = (props) => {
 
-  close = (e) => {
+  const closeModal = (e) => {
     e.preventDefault()
     const parent = document.getElementById('website')
     parent.className = "ui modal"
   }
 
-  render(){
-    return(
+  return (
     <div className="ui modal" id="website">
-    <div className="content">
-    
-    </div>
-    <div className="actions">
-      <div className="ui black deny button" onClick={this.close}>
-        Close
+      <div className="actions">
+        <div className="ui black deny button" onClick={closeModal}>
+          Close
+        </div>
+        <div className="content">
+          <object data={props.url} width="100%" height="400">
+            Nope
+          </object>
+        </div>
       </div>
     </div>
-    </div>
-    )
-  }
+  )
 
 }
-
-
 
 export default WebModal
