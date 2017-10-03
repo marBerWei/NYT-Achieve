@@ -12,6 +12,6 @@ export function loginUser(loginParams){
         return res.json()
       }
      )
-      
+
 
 }

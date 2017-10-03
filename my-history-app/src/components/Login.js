@@ -6,7 +6,9 @@ class Login extends React.Component {
 
   state = {
     email: "",
-    password: ""
+    password: "",
+    firstName: "",
+    lastName: ""
   }
 
   handleSubmit = (event) => {
@@ -16,10 +18,15 @@ class Login extends React.Component {
       email: this.state.email,
       password: this.state.password
     }
-    loginUser(loginParams).then((user) => {
 
+    loginUser(loginParams).then((user) => {
       localStorage.setItem("jwtToken", user.jwt)
-      this.setState({jwt: user.jwt})
+      localStorage.setItem("firstName", user.user.first_name)
+      localStorage.setItem("lastName", user.user.last_name)
+      localStorage.setItem("email", user.user.email)
+      this.setState({
+        jwt: user.jwt
+      })
 
       this.setState({email: "", password: ""})
     })

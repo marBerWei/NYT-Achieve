@@ -7,11 +7,15 @@ import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import Profile from './components/Profile'
 
 class App extends Component {
 
   handleLogout = (event) => {
     localStorage.removeItem("jwtToken")
+    localStorage.removeItem("firstName")
+    localStorage.removeItem("lastName")
+    localStorage.removeItem("email")
     return <Redirect to="/"/>
   }
 
@@ -23,6 +27,7 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={WelcomePage}/>
           <Nav handleLogout={this.handleLogout}/>
+          <Route exact path="/me" component={Profile}/>
           <HistoryContainer/>
         </div>
       )
