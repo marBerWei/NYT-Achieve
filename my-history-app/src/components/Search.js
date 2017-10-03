@@ -16,7 +16,7 @@ const Search = (props) => {
       <form onSubmit={onSearch}>
         <div>
           <input id="date-search" type="date" name="bday" min="1851-10-01" defaultValue={finalizedDate}/>
-          <input className="ui red button" type="submit"/>
+          <input className="ui blue button" type="submit"/>
         </div>
       </form>
     </div>

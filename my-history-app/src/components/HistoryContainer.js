@@ -1,6 +1,5 @@
 import React from 'react'
 import HistoryList from './HistoryList'
-import {Route} from 'react-router-dom'
 import Search from './Search'
 import ParseFunc from '../ParseFunc'
 import Filter from './Filter'
@@ -42,7 +41,7 @@ class HistoryContainer extends React.Component {
 
     return (
 
-    
+
             <div>
               <Search handleSearch={this.handleSearch} todaysDate={this.state.startDate}/>
               <Filter handleFilter={this.handleFilter}/>
@@ -50,7 +49,7 @@ class HistoryContainer extends React.Component {
                 ? this.state.filteredEvents
                 : this.state.events}/>
             </div>
-          
+
     )
   }
 }

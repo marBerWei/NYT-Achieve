@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router'
 
 class SignUp extends React.Component {
 
@@ -58,11 +57,11 @@ class SignUp extends React.Component {
     localStorage.setItem("firstName", user.user.first_name)
     localStorage.setItem("lastName", user.user.last_name)
     localStorage.setItem("email", user.user.email)
-    
+
 
   })
   this.props.history.push("/home")
-    
+
 
   }
 
@@ -96,7 +95,7 @@ class SignUp extends React.Component {
               </div>
             </div>
 
-            <div className="ui fluid large red submit button" onClick={this.handleSignUp}>Sign Up</div>
+            <div className="ui fluid large blue submit button" onClick={this.handleSignUp}>Sign Up</div>
             <h4>Already a fan?
               <a href="/login"> Sign in here</a>
             </h4>

@@ -47,3 +47,7 @@
 #website {
   padding-bottom: 15%;
 }
+
+#user-card {
+  max-width: inherit;
+}
