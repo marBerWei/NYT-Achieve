@@ -25,10 +25,13 @@ class App extends Component {
 
       return (
         <div className="App">
-          <Route exact path="/" component={WelcomePage}/>
           <Nav handleLogout={this.handleLogout}/>
-          <Route exact path="/me" component={Profile}/>
-          <HistoryContainer/>
+           <Route exact path="/home" render= {(props) => 
+              <HistoryContainer {...props}/> }
+            />
+          <Route exact path="/" component={WelcomePage}/>
+          <Route exact path="/me" render={Profile}/>
+          
         </div>
       )
     } else {
@@ -36,9 +39,12 @@ class App extends Component {
         <div className="App">
           <Nav/>
           <Route exact path="/" component={WelcomePage}/>
+          <Route exact path="/home" render= {(props) => 
+              <HistoryContainer {...props}/> }
+            />
           <Route exact path="/login" component={Login}/>
-          <Route exact path="/signUp" component={SignUp}/>
-          <HistoryContainer/>
+          <Route exact path="/signup" component={SignUp}/>
+          
         </div>
       )
     }

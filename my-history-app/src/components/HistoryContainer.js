@@ -42,9 +42,7 @@ class HistoryContainer extends React.Component {
 
     return (
 
-      <div>
-        <Route exact path='/home' render={(props) => {
-          return (
+    
             <div>
               <Search handleSearch={this.handleSearch} todaysDate={this.state.startDate}/>
               <Filter handleFilter={this.handleFilter}/>
@@ -52,9 +50,7 @@ class HistoryContainer extends React.Component {
                 ? this.state.filteredEvents
                 : this.state.events}/>
             </div>
-          )
-        }}/>
-      </div>
+          
     )
   }
 }

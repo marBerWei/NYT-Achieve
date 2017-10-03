@@ -21,8 +21,8 @@ const HistoryItem = (props) => {
       </div>
       <div className="content">
         <a className="header" onClick={popUp}>{props.event.headline.main}</a>
-          <button class="ui icon button" id= {props.id}>
-            <i class="heart icon"></i>
+          <button className="ui icon button" id= {props.id}>
+            <i className="heart icon"></i>
           </button>
         <div className="description">
           <p>{props.event.snippet}</p>

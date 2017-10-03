@@ -1,38 +1,104 @@
 import React from 'react'
+import { Route, Redirect } from 'react-router'
 
-const SignUp = () => {
+class SignUp extends React.Component {
+
+  state = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+  }
+
+  handleFirstName = (event) => {
+    event.preventDefault()
+    this.setState({
+      firstName: event.target.value
+    })
+  }
+  handleLastName = (event) => {
+    event.preventDefault()
+    this.setState({
+      lastName: event.target.value
+    })
+  }
+  handleEmail = (event) => {
+    event.preventDefault()
+    this.setState({
+      email: event.target.value
+    })
+  }
+  handlePassword = (event) => {
+   event.preventDefault()
+    this.setState({
+      password: event.target.value
+    })
+  }
+
+
+  handleSignUp = () => {
+    console.log(this.props)
+    const signupParams = {
+      email: this.state.email,
+      password: this.state.password,
+      first_name: this.state.firstName,
+      last_name: this.state.lastName
+    }
+
+    fetch("http://localhost:3001/signup", {
+    method: 'post',
+    body: JSON.stringify(signupParams),
+    headers: {
+      "Content-Type":"application/json",
+      "Accept":"application/json"
+    }
+  }).then(res => res.json()).then(user => {
+    console.log(user)
+    localStorage.setItem("jwtToken", user.jwt)
+    localStorage.setItem("firstName", user.user.first_name)
+    localStorage.setItem("lastName", user.user.last_name)
+    localStorage.setItem("email", user.user.email)
+    
+
+  })
+  this.props.history.push("/home")
+    
+
+  }
+
+  render(){
   return (
-    <div class="ui middle aligned center aligned grid">
-      <div class="column">
-        <h2 id="login-header" class="ui red image header">
-          <div class="content">Sign up for an account</div>
+    <div className="ui middle aligned center aligned grid">
+      <div className="column">
+        <h2 id="login-header" className="ui red image header">
+          <div className="content">Sign up for an account</div>
         </h2>
-        <form class="ui large form">
-          <div class="ui stacked segment">
-            <div class="field">
-              <div class="ui left icon input">
-                <input type="text" name="first-name" placeholder="First Name"/>
+        <form className="ui large form">
+          <div className="ui stacked segment">
+            <div className="field">
+              <div className="ui left icon input">
+                <input type="text" name="first-name" placeholder="First Name" onChange={this.handleFirstName}/>
               </div>
             </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <input type="text" name="last-name" placeholder="Last Name"/>
+            <div className="field">
+              <div className="ui left icon input">
+                <input type="text" name="last-name" placeholder="Last Name" onChange={this.handleLastName}/>
               </div>
             </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <input type="text" name="email" placeholder="E-mail address"/>
+            <div className="field">
+              <div className="ui left icon input">
+                <input type="text" name="email" placeholder="E-mail address" onChange={this.handleEmail}/>
               </div>
             </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <input type="password" name="password" placeholder="Password"/>
+            <div className="field">
+              <div className="ui left icon input">
+                <input type="password" name="password" placeholder="Password" onChange={this.handlePassword}/>
               </div>
             </div>
 
-            <div class="ui fluid large red submit button">Sign Up</div>
+            <div className="ui fluid large red submit button" onClick={this.handleSignUp}>Sign Up</div>
             <h4>Already a fan?
-              <a href="/Login">Sign in here</a>
+              <a href="/login"> Sign in here</a>
             </h4>
           </div>
 
@@ -42,6 +108,7 @@ const SignUp = () => {
     </div>
 
   )
+}
 }
 
 export default SignUp

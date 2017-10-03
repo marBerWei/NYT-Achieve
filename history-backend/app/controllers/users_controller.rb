@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: user.id})
       render json: {user: user, jwt: token}
     else
+      render json: {message: "already a user"}
     end
   end
 
