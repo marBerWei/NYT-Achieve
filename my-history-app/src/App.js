@@ -9,12 +9,21 @@ import SignUp from './components/SignUp'
 
 
 class App extends Component {
+
+  // componentDidMount(){
+  //   fetch("http://localhost:3001/Me")
+  //   .then((res) => res.json())
+  //   .then((json) => {
+  //     console.log(json)
+  //   })
+  // }
+
   render() {
     return (
       <div className="App">
       	<Route exact path="/" component={WelcomePage}/>
-      	<Route exact path="/Login" component={Login}/>
-      	<Route exact path="/SignUp" component={SignUp}/>
+      	<Route exact path="/login" component={Login}/>
+      	<Route exact path="/signUp" component={SignUp}/>
        <HistoryContainer/>
       </div>
     )

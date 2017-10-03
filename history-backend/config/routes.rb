@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/Signup', to: 'users#create'
-  post '/Login', to: 'auth#create'
-  post '/Me', to: 'users#me'
+  post '/signup', to: 'users#create'
+  post '/login', to: 'auth#create'
+  post '/me', to: 'users#me'
 end

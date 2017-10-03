@@ -15,8 +15,11 @@ class ApplicationController < ActionController::API
     begin
       JWT.decode(token, "stacey", true, {algorithm: 'HS256'})
     rescue JWT::DecodeError
-      [{false}]
+      [{}]
     end
+    else
+    end
+
   end
 
   def current_user
