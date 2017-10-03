@@ -7,8 +7,8 @@ class Nav extends React.Component {
     return (
       <div className="ui inverted menu">
         <NavLink activeClassName="active red item" className="item" to="/">Home</NavLink>
-        <NavLink className="item right" to="/SignUp">Sign Up</NavLink>
-        <NavLink className="item right" to="/Login">Login</NavLink>
+        <NavLink className="item" to="/SignUp">Sign Up</NavLink>
+        <NavLink className="item" to="/Login">Login</NavLink>
       </div>
     )
   }

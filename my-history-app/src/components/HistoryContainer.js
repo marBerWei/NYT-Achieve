@@ -25,12 +25,11 @@ class HistoryContainer extends React.Component {
 		.then((res) => res.json())
 		.then(data => this.setState({
 			events: data.response.docs
-		}),console.log(this.state.events))
+		}))
 	}
 
 	handleFilter = (event) =>{
 		let currentSearchTerm = event.target.value.toLowerCase()
-		console.log(currentSearchTerm)
 		let filtered = this.state.events.filter((e) => {
 			return e.snippet.toLowerCase().includes(currentSearchTerm) || e.headline.main.toLowerCase().includes(currentSearchTerm)
 		})

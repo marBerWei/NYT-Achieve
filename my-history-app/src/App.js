@@ -15,11 +15,10 @@ class App extends Component {
       	<Route exact path="/" component={WelcomePage}/>
       	<Route exact path="/Login" component={Login}/>
       	<Route exact path="/SignUp" component={SignUp}/>
-      <div id="modal"></div>
        <HistoryContainer/>
       </div>
     )
- 
+
   }
 }
 
