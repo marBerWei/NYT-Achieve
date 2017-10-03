@@ -1,4 +1,6 @@
 import React from 'react'
+import { loginUser } from '../services/user'
+import { Redirect } from 'react-router-dom'
 
 
 class Login extends React.Component {
@@ -13,27 +15,18 @@ class Login extends React.Component {
     
 
     const loginParams= {email: this.state.email, password: this.state.password}
-    const body = JSON.stringify(loginParams)
-    //console.log(body)
-    fetch("http://localhost:3001/login", {
-      method: 'post',
-      body: body,
-      headers: {
-        "Content-Type":"application/json",
-        "Accept":"application/json"
-      }
-    })
-      .then((res) => {
-        return res.json()
-      }
-      )
-      .then((json) => {
-        console.log(json)
-      })
+    loginUser(loginParams)
+      .then((user) => {
 
-    this.setState({
-      email: "",
-      password: ""
+        localStorage.setItem("jwtToken", user.jwt)
+        this.setState({
+          jwt: user.jwt
+        })
+
+        this.setState({
+          email: "",
+          password: ""
+      })
     })
   }
 
@@ -51,7 +44,14 @@ class Login extends React.Component {
   }
 
   render(){
+
+  if (localStorage.getItem('jwtToken')){
+    return <Redirect to="/home"/>
+  } else {
+
+
 	return (
+
 		<div className="ui middle aligned center aligned grid">
   			<div className="column">
     			<h2 id="login-header" className="ui red image header">
@@ -82,6 +82,7 @@ class Login extends React.Component {
 
 
 		)
+    }
 }
 }
 
