@@ -69,7 +69,7 @@ class SignUp extends React.Component {
   return (
     <div className="ui middle aligned center aligned grid">
       <div className="column">
-        <h2 id="login-header" className="ui red image header">
+        <h2 id="login-header" className="ui blue image header">
           <div className="content">Sign up for an account</div>
         </h2>
         <form className="ui large form">

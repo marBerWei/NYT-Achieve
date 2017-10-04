@@ -22,12 +22,12 @@ const HistoryItem = (props) => {
           </div>
           <div className="content">
             <a className="header" onClick={popUp}>{props.event.headline.main}</a>
-              <button className="ui icon button" id= {props.id}>
-                <i className="heart icon"></i>
-              </button>
             <div className="description">
               <p>{props.event.snippet}</p>
             </div>
+            <button className="ui icon button" id= {props.id}>
+              <i className="heart icon"></i>
+            </button>
           </div>
           <div className="ui divider"></div>
           <WebModal url={props.event.web_url}/>
