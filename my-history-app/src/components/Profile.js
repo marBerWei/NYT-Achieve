@@ -22,6 +22,9 @@ class Profile extends React.Component {
           </div>
         </div>
         <div><h1>Favorite Articles</h1></div>
+        <div class="ui disabled header">
+            Coming Soon!
+      </div>
     </div>
     )
   }

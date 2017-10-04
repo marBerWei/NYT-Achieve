@@ -16,7 +16,6 @@ const WebModal = (props) => {
         </div>
         <div className="content">
           <object data={props.url} width="100%" height="400">
-            Nope
           </object>
         </div>
       </div>

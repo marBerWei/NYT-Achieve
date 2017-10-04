@@ -26,7 +26,7 @@ const HistoryItem = (props) => {
               <p>{props.event.snippet}</p>
             </div>
             <button className="ui icon button" id= {props.id}>
-              <i className="heart icon"></i>
+              Save
             </button>
           </div>
           <div className="ui divider"></div>
